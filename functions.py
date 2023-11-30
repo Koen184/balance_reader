@@ -94,11 +94,9 @@ def save_to_excel_auto(entry):
             data_mine.append(mine)
             data_values.append(values)
 
-    # Splitting values by spaces and allocating them to respective columns
     data_values_split = [values.split() for values in data_values]
     data_values_columns = [[row[i] if len(row) > i else '' for row in data_values_split] for i in range(5)]
 
-    # Creating a DataFrame
     data_dict = {'Mine': data_mine}
     for i, header in enumerate(headers[1:]):
         data_dict[header] = data_values_columns[i]
